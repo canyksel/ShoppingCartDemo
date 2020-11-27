@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppECart", "WebAppECart\WebAppECart.csproj", "{19A9B975-A3BF-4652-BD60-569881FD0AE9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19A9B975-A3BF-4652-BD60-569881FD0AE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19A9B975-A3BF-4652-BD60-569881FD0AE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19A9B975-A3BF-4652-BD60-569881FD0AE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19A9B975-A3BF-4652-BD60-569881FD0AE9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62446043-680D-4D33-B8A9-CB1AB2D64B37}
+	EndGlobalSection
+EndGlobal

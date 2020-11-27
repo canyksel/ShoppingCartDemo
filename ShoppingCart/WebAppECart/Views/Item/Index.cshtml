@@ -1,0 +1,106 @@
+﻿@model WebAppECart.ViewModel.ItemViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#btnSave").click(function() {
+            SaveItem();
+        });
+    });
+
+    function ResetItem() {
+        $("#CategoryId").val("1");
+        $("#ItemCode").val("");
+        $("#ItemName").val("");
+        $("#Description").val("");
+        $("#ItemPrice").val("");
+        $("#ImagePath").val("");
+
+
+    }
+
+
+    function SaveItem() {
+        var formData = new FormData();
+        formData.append("CategoryId", $("#CategoryId").val());
+        formData.append("ItemCode", $("#ItemCode").val());
+        formData.append("ItemName", $("#ItemName").val());
+        formData.append("Description", $("#Description").val());
+        formData.append("ItemPrice", $("#ItemPrice").val());
+        formData.append("ImagePath", $("#ImagePath").get(0).files[0]);
+
+        $.ajax({
+            async: true,
+            dataType: 'JSON',
+            type: 'POST',
+            contentType: false,
+            processData: false,
+            url: '/Item/Index',
+            data: formData,
+            success: function (data) {
+                if (data.Success) {
+
+                    alert(data.Message);
+                    ResetItem();
+                }
+            },
+            error: function () {
+                alert("Ürün ekleme sırasında sorun oluştu.");
+            }
+        });
+    }
+</script>
+
+<div class="container">
+    <div class="col-md-4">
+        <div class="form-group">
+            Kategori :
+            @Html.DropDownListFor(model => model.CategoryId, new SelectList(Model.CategorySelectListItems, "Value", "Text"),
+            new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="form-group">
+            Ürün Kodu :
+            @Html.TextBoxFor(model => model.ItemCode, new { @class = "form-control", autocomplete = "off" })
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="form-group">
+            Ürün Adı :
+            @Html.TextBoxFor(model => model.ItemName, new { @class = "form-control", autocomplete = "off" })
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="form-group">
+            Ürün Açıklaması :
+            @Html.TextBoxFor(model => model.Description, new { @class = "form-control", autocomplete = "off" })
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="form-group">
+            Fiyat :
+            @Html.TextBoxFor(model => model.ItemPrice, new { @class = "form-control", autocomplete = "off" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            Ürün Görseli :
+            @Html.TextBoxFor(model => model.ImagePath, new { type = "file", @class = "form-control", autocomplete = "off" })
+        </div>
+    </div>
+
+    <div>
+        <input type="button" value="Kaydet" name="save" class="btn btn-primary" id="btnSave" />
+        &nbsp;
+        <input type="button" value="Sıfırla" name="reset" class="btn btn-danger" />
+
+    </div>
+</div>
